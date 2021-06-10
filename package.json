@@ -15,7 +15,7 @@
     "prepare": "rollup -c",
     "pretest": "rollup -c rollup.config.test.js",
     "test": "node --enable-source-maps --trace-uncaught tests/dist/tests.cjs",
-    "doc": "typedoc src/index.ts"
+    "doc": "typedoc"
   },
   "repository": {
     "type": "git",

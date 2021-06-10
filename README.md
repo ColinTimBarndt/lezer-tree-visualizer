@@ -2,6 +2,7 @@
 
 [![CodeMirror 6](https://img.shields.io/badge/CodeMirror-6-informational?logo=CodeMirror)](https://codemirror.net/6/)
 [![Documentation](https://img.shields.io/badge/-Documentation-informational?logo=typescript&logoColor=white)](https://colintimbarndt.github.io/lezer-tree-visualizer/)
+[![npm (scoped)](https://img.shields.io/npm/v/@colin_t/lezer-tree-visualizer)](https://www.npmjs.com/package/@colin_t/lezer-tree-visualizer)
 
 A basic tool for debugging syntax trees by visualizing them. This module
 exports two functions, one for directly printing to the console and another

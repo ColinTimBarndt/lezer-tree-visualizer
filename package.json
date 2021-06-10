@@ -1,5 +1,5 @@
 {
-  "name": "lezer-tree-visualizer",
+  "name": "@colin_t/lezer-tree-visualizer",
   "version": "0.1.0",
   "description": "Visualizes a lezer tree to view it in a console",
   "main": "dist/index.cjs",
@@ -45,5 +45,9 @@
   },
   "dependencies": {
     "lezer-tree": "^0.13.2"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
   }
 }

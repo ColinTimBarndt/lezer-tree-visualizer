@@ -1,0 +1,49 @@
+{
+  "name": "lezer-tree-visualizer",
+  "version": "0.1.0",
+  "description": "Visualizes a lezer tree to view it in a console",
+  "main": "dist/index.cjs",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "prepare": "rollup -c",
+    "pretest": "rollup -c rollup.config.test.js",
+    "test": "node --enable-source-maps --trace-uncaught tests/dist/tests.cjs",
+    "doc": "typedoc src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColinTimBarndt/lezer-tree-visualizer.git"
+  },
+  "keywords": [
+    "lezer",
+    "syntax-tree"
+  ],
+  "author": "Colin Tim Barndt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ColinTimBarndt/lezer-tree-visualizer/issues"
+  },
+  "homepage": "https://github.com/ColinTimBarndt/lezer-tree-visualizer#readme",
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-multi-entry": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
+    "lezer-java": "^0.13.2",
+    "rollup": "^2.50.6",
+    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-string": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typedoc": "^0.20.36"
+  },
+  "dependencies": {
+    "lezer-tree": "^0.13.2"
+  }
+}

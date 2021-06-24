@@ -10,7 +10,20 @@ const [CH_V, CH_VR, CH_R, CH_E] = [
 	"  ",
 ];
 
-const colorScheme = typeof process === "object" ? {
+export interface Theme {
+	name: ColorType;
+	source: ColorType;
+	tree: ColorType;
+	blockQuotes: ColorType;
+	blockReturn: ColorType;
+	colon: ColorType;
+	ellipsis: ColorType;
+}
+
+/**
+ * The default color theme for terminals.
+ */
+export const defaultOsTheme: Theme = {
 	name: Color.BrightCyan,
 	source: Color.DarkYellow,
 	tree: Color.DarkGray,
@@ -18,7 +31,11 @@ const colorScheme = typeof process === "object" ? {
 	blockReturn: Color.DarkGray,
 	colon: Color.LightGray,
 	ellipsis: Color.LightGray,
-} : {
+} as const;
+/**
+ * The default color theme for web consoles.
+ */
+export const defaultWebTheme: Theme = {
 	name: Color.vsc.BrightCyan,
 	source: Color.vsc.DarkYellow,
 	tree: Color.vsc.DarkGray,
@@ -26,7 +43,14 @@ const colorScheme = typeof process === "object" ? {
 	blockReturn: Color.vsc.DarkGray,
 	colon: Color.vsc.LightGray,
 	ellipsis: Color.vsc.LightGray,
-};
+} as const;
+
+/**
+ * The default color theme for the current platform.
+ */
+export const defaultTheme: Theme = typeof process === "object"
+	? defaultOsTheme
+	: defaultWebTheme;
 
 
 /**
@@ -84,6 +108,10 @@ export interface Options {
 	 * ignored if set.
 	 */
 	writer?: IWriter;
+	/**
+	 * Overrides the {@link defaultTheme | default theme}.
+	 */
+	theme?: Theme;
 }
 
 type Generator2d<T, R = any> = Generator<Generator<T, void>, R>;
@@ -101,10 +129,11 @@ export function visualize(cursor: TreeCursor, src: Source, options: Options = {}
 		: new Writer());
 	
 	let seg,
-		filter: FilterFunction = options.filter || (() => 1);
+		filter: FilterFunction = options.filter || (() => 1),
+		theme: Theme = options.theme || defaultTheme;
 	if (options.lineByLine) {
 		let line;
-		for (line of traverseNode(cursor, src, filter)) {
+		for (line of traverseNode(cursor, src, theme, filter)) {
 			for (seg of line) {
 				if (seg[1]) {
 					if (seg[1] === -1)
@@ -118,7 +147,10 @@ export function visualize(cursor: TreeCursor, src: Source, options: Options = {}
 			writer.clear();
 		}
 	} else {
-		for (seg of joinAll(traverseNode(cursor, src, filter), ["\n", undefined])) {
+		for (seg of joinAll(
+			traverseNode(cursor, src, theme, filter),
+			["\n", undefined],
+		)) {
 			if (seg[1]) {
 				if (seg[1] === -1)
 					writer.resetColor(true, false);
@@ -134,62 +166,63 @@ export function visualize(cursor: TreeCursor, src: Source, options: Options = {}
 function* traverseNode(
 	cursor: TreeCursor,
 	src: Source,
+	theme: Theme,
 	filter: FilterFunction,
 ): Generator2d<[string, ColorType | -1 | undefined], void> {
 	const nodeName = cursor.node.name;
 	switch (filter(cursor.node)) {
 		case 2:
 			yield list(
-				[nodeName, colorScheme.name],
-				[": ", colorScheme.colon],
-				["…", colorScheme.ellipsis],
+				[nodeName,  theme.name],
+				[": ",  theme.colon],
+				["…",  theme.ellipsis],
 			);
 		case 0:
 			return;
 	}
 	if (cursor.firstChild()) {
 		yield list(
-			[nodeName, colorScheme.name],
-			[":", colorScheme.colon]
+			[nodeName,  theme.name],
+			[":",  theme.colon],
 		);
 		let line, hasNext;
 		do {
 			hasNext = cursor.node.nextSibling;
 			for (line of prefix2d(
-				traverseNode(cursor, src, filter),
-				[hasNext ? CH_VR : CH_R, colorScheme.tree],
-				[hasNext ? CH_V : CH_E, colorScheme.tree],
+				traverseNode(cursor, src, theme, filter),
+				[hasNext ? CH_VR : CH_R,  theme.tree],
+				[hasNext ? CH_V : CH_E,  theme.tree],
 			)) yield line;
 		} while (cursor.nextSibling())
 		cursor.parent();
 	} else {
 		const nodeText = src.substring(cursor.from, cursor.to);
 		if (nodeText === nodeName) {
-			yield list([nodeName, colorScheme.source]);
+			yield list([nodeName,  theme.source]);
 		} else {
 			if (nodeText.indexOf("\n") < 0)
 				yield list(
-					[nodeName, colorScheme.name],
-					[": ", colorScheme.colon],
-					[nodeText, colorScheme.source],
+					[nodeName,  theme.name],
+					[": ",  theme.colon],
+					[nodeText,  theme.source],
 				);
 			else {
 				yield list(
-					[nodeName, colorScheme.name],
-					[": ", colorScheme.colon],
-					["'''", colorScheme.blockQuotes],
+					[nodeName,  theme.name],
+					[": ",  theme.colon],
+					["'''",  theme.blockQuotes],
 				);
 				let i = 0,
 					lines = nodeText.split(/\r?\n/g),
 					end = lines.length - 1;
 				for (; i < end; i++)
 					yield list(
-						[CH_E + lines[i], colorScheme.source],
-						["⮐", colorScheme.blockReturn],
+						[CH_E + lines[i],  theme.source],
+						["⮐",  theme.blockReturn],
 					);
 				if (end >= 0)
-					yield list([CH_E + lines[i], colorScheme.source]);
-				yield list(["  '''", colorScheme.blockQuotes]);
+					yield list([CH_E + lines[i],  theme.source]);
+				yield list(["  '''",  theme.blockQuotes]);
 			}
 		}
 	}

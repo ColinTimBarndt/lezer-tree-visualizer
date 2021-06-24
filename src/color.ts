@@ -18,7 +18,7 @@ const VSCColor = {
 	Magenta: <ColorType>{ rgb: [214, 112, 214] },
 	BrightCyan: <ColorType>{ rgb: [41, 184, 219] },
 	White: <ColorType>{ rgb: [229, 229, 229 ] },
-};
+} as const;
 /**
  * Default terminal colors (4-bit) and helper functions.
  */
@@ -101,7 +101,7 @@ export const Color = {
 			//@ts-ignore
 			&& a.rgb[2] === b.rgb[2];
 	}
-};
+} as const;
 
 const palette4bit: RGB[] = [
 	// Dark

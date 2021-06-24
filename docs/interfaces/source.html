@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Options | @colin_t/lezer-tree-visualizer</title>
+	<title>Source | @colin_t/lezer-tree-visualizer</title>
 	<meta name="description" content="Documentation for @colin_t/lezer-tree-visualizer">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,21 +55,28 @@
 					<a href="../modules.html">@colin_t/lezer-tree-visualizer</a>
 				</li>
 				<li>
-					<a href="options.html">Options</a>
+					<a href="source.html">Source</a>
 				</li>
 			</ul>
-			<h1>Interface Options</h1>
+			<h1>Interface Source</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>An object that can be used as a source must have the <code>substring</code> method.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Options</span>
+						<span class="target">Source</span>
 					</li>
 				</ul>
 			</section>
@@ -78,75 +85,41 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="options.html#colors" class="tsd-kind-icon">colors</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="options.html#linebyline" class="tsd-kind-icon">line<wbr>ByLine</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="options.html#writer" class="tsd-kind-icon">writer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="source.html#substring" class="tsd-kind-icon">substring</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="colors" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> colors</h3>
-					<div class="tsd-signature tsd-kind-icon">colors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/visualize.ts#L42">visualize.ts:42</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether to use console colors.</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>defaultvalue</dt>
-							<dd><p>false</p>
-							</dd>
-						</dl>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="linebyline" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> line<wbr>ByLine</h3>
-					<div class="tsd-signature tsd-kind-icon">line<wbr>ByLine<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/visualize.ts#L49">visualize.ts:49</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether to log using only one call to <code>console.log</code> or one call for
-								each line. This option often looks very ugly in the browser, but it might
-							improve performance and memory usage for very large trees.</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>defaultvalue</dt>
-							<dd><p>false</p>
-							</dd>
-						</dl>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="writer" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> writer</h3>
-					<div class="tsd-signature tsd-kind-icon">writer<span class="tsd-signature-symbol">:</span> <a href="iwriter.html" class="tsd-signature-type" data-tsd-kind="Interface">IWriter</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/visualize.ts#L54">visualize.ts:54</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Replaces the standard writer. The <a href="options.html#colors">Options.colors</a> option is
-							ignored if set.</p>
-						</div>
-					</div>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="substring" class="tsd-anchor"></a>
+					<h3>substring</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">substring<span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/visualize.ts#L34">visualize.ts:34</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>from: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>to: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -172,27 +145,21 @@
 					<li class=" tsd-kind-interface">
 						<a href="iwriter.html" class="tsd-kind-icon">IWriter</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="options.html" class="tsd-kind-icon">Options</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="options.html" class="tsd-kind-icon">Options</a>
+						<a href="source.html" class="tsd-kind-icon">Source</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="options.html#colors" class="tsd-kind-icon">colors</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="options.html#linebyline" class="tsd-kind-icon">line<wbr>ByLine</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="options.html#writer" class="tsd-kind-icon">writer</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="source.html#substring" class="tsd-kind-icon">substring</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="source.html" class="tsd-kind-icon">Source</a>
-					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#colorstate" class="tsd-kind-icon">Color<wbr>State</a>
 					</li>

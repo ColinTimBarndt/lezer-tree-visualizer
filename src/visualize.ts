@@ -5,8 +5,8 @@ import { IWriter, Writer } from "./writer";
 
 const [CH_V, CH_VR, CH_R, CH_E] = [
 	"│ ",
-	"├─",
-	"└─",
+	"├╴",
+	"└╴",
 	"  ",
 ];
 

@@ -73,7 +73,7 @@ export interface Source {
 export type FilterFunction = (node: SyntaxNode) => VisibilityModifierValue;
 
 /**
- * @see {@link Options.FilterFunction}
+ * @see {@link Options.filter}
  */
 export const VisibilityModifier = {
 	Hidden: 0,
@@ -81,7 +81,7 @@ export const VisibilityModifier = {
 	Collapsed: 2,
 } as const;
 /**
- * @see {@link Options.FilterFunction}
+ * @see {@link Options.filter}
  */
 export type VisibilityModifierValue = typeof VisibilityModifier[keyof typeof VisibilityModifier];
 

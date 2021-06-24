@@ -8,8 +8,8 @@ A basic tool for debugging syntax trees by visualizing them. This module
 exports two functions, one for directly printing to the console and another
 one for storing the formatted string (without color formatting).
 
-This modules supports both native consoles and the web. Be sure to use CommonJS
-for the native version and the ES-module for web color support.
+This modules supports both native consoles and the web. This library detects
+if it is run in the browser or Node.
 
 ## Example
 

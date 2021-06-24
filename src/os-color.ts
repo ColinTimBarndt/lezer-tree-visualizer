@@ -1,11 +1,26 @@
-import { Color, PlatformColor } from "./color";
+import { Color, ColorType } from "./color";
 import { Writer } from "./writer";
 
-function colorId(color: Color, bg: boolean, bright: boolean): string {
-	return color + (bright ? 90 : 30) + (bg ? 10 : 0) + "";
+function colorId(color: ColorType, bg: boolean): string {
+	if (typeof color === "number") {
+		const [three, bright] = Color.to3bit(color);
+		return three + (bright ? 90 : 30) + (bg ? 10 : 0) + "";
+	}
+	if (color instanceof Array) {
+		return (bg ? "48;" : "38;") + color.join(";");
+	}
+	return (bg ? "48;2;" : "38;2;") + color.rgb.join(";");
 }
 
-export class ColorWriter extends Writer {
+/**
+ * Writes to the console with ANSI escape codes to support terminal colors.
+ * @see {@link https://en.wikipedia.org/wiki/ANSI_escape_code#Colors}
+ */
+export class OsColorWriter extends Writer {
+	/**
+	 * @inheritdoc IWriter.push
+	 * @override
+	 */
 	public push(str: string) {
 		const lines = str.split("\n");
 		let i: number;
@@ -14,26 +29,30 @@ export class ColorWriter extends Writer {
 			if (this.color.bg === null) {
 				this.buffer += "\n";
 			} else {
-				this.buffer += "\x1b[0m\n";
+				this.buffer += "\x1b[m\n";
 				this.color.update_fg = true;
 				this.color.update_bg = true;
 			}
 		}
 		super.push(lines[i]);
 	}
+	/**
+	 * @inheritdoc IWriter.pushColor
+	 * @override
+	 */
 	protected pushColor() {
 		const { update_fg, update_bg } = this.color;
 		if (!(update_fg || update_bg)) return;
 		const codes: string[] = [];
 
 		if (update_fg && this.color.fg !== null) {
-			codes.push(colorId(this.color.fg, false, this.color.bright_fg));
+			codes.push(colorId(this.color.fg, false));
 		}
 		if (update_bg && this.color.bg !== null) {
-			codes.push(colorId(this.color.bg, true, this.color.bright_bg));
+			codes.push(colorId(this.color.bg, true));
 		}
 		if (this.color.fg === null && this.color.bg === null) {
-			codes.push("0");
+			codes.push("");
 		} else {
 			if (update_fg && this.color.fg === null) {
 				codes.push("39");
@@ -49,10 +68,10 @@ export class ColorWriter extends Writer {
 	}
 
 	/**
-	 * @inheritdoc Writer.print
+	 * @inheritdoc IWriter.print
 	 * @override
 	 */
 	public print() {
-		console.log(this.buffer + "\x1b[0m");
+		console.log(this.buffer + "\x1b[m");
 	}
 }

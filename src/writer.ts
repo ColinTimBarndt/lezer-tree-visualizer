@@ -1,4 +1,4 @@
-import { Color, PlatformColor } from "./color";
+import { Color, ColorType, ColorState } from "./color";
 
 export interface IWriter {
 	/**
@@ -10,15 +10,13 @@ export interface IWriter {
 	/**
 	 * Sets the foreground color.
 	 * @param color New color.
-	 * @param bright Whether to use the brighter version.
 	 */
-	fg(color: Color, bright?: boolean): void;
+	fg(color: ColorType): void;
 	/**
 	 * Sets the background color.
 	 * @param color New color.
-	 * @param bright Whether to use the brighter version.
 	 */
-	bg(color: Color, bright?: boolean): void;
+	bg(color: ColorType): void;
 	/**
 	 * Resets the current color to the default.
 	 * @param fg Foreground color.
@@ -30,6 +28,10 @@ export interface IWriter {
 	 */
 	print(): void;
 	/**
+	 * Clears the internal buffer but keeps the current colors.
+	 */
+	clear(): void
+	/**
 	 * @returns The text content of this writer.
 	 */
 	toString(): string;
@@ -40,11 +42,9 @@ export interface IWriter {
  */
 export class Writer implements IWriter {
 	protected buffer: string = "";
-	protected color: PlatformColor = {
+	protected color: ColorState = {
 		fg: null,
 		bg: null,
-		bright_fg: false,
-		bright_bg: false,
 		update_fg: false,
 		update_bg: false,
 	};
@@ -55,96 +55,50 @@ export class Writer implements IWriter {
 	 */
 	protected pushColor() { }
 	
+	/** @inheritdoc IWriter.push */
 	public push(str: string) {
 		this.pushColor();
 		this.buffer += str;
 		this.color.update_fg = false;
 		this.color.update_bg = false;
 	}
-	public fg(color: Color, bright: boolean = false): void {
-		if (this.color.fg !== color || this.color.bright_fg !== bright) {
+	/** @inheritdoc IWriter.fg */
+	public fg(color: ColorType): void {
+		if (!Color.fastEquals(this.color.fg, color)) {
 			this.color.fg = color;
-			this.color.bright_fg = bright;
 			this.color.update_fg = true;
 		}
 	}
-	public bg(color: Color, bright: boolean = true): void {
-		if (this.color.bg !== color || this.color.bright_bg !== bright) {
+	/** @inheritdoc IWriter.bg */
+	public bg(color: ColorType): void {
+		if (!Color.fastEquals(this.color.bg, color)) {
 			this.color.bg = color;
-			this.color.bright_bg = bright;
 			this.color.update_bg = true;
 		}
 	}
+	/** @inheritdoc IWriter.resetColor */
 	public resetColor(fg: boolean = true, bg: boolean = true) {
-		if (fg && ((this.color.fg !== null) != this.color.update_fg)) {
+		if (fg && ((this.color.fg !== null) !== this.color.update_fg)) {
 			this.color.fg = null;
 			this.color.update_fg = true;
 		}
-		if (bg && ((this.color.bg !== null) != this.color.update_bg)) {
+		if (bg && ((this.color.bg !== null) !== this.color.update_bg)) {
 			this.color.bg = null;
 			this.color.update_bg = true;
 		}
 	}
+	/** @inheritdoc IWriter.print */
 	public print(): void {
 		console.log(this.buffer);
 	}
+	/** @inheritdoc IWriter.clear */
+	public clear(): void {
+		this.buffer = "";
+		this.color.update_bg = true;
+		this.color.update_fg = true;
+	}
+	/** @inheritdoc IWriter.toString */
 	public toString(): string {
 		return this.buffer;
-	}
-}
-
-/**
- * Wrapper class for a {@link Writer} with indentation support.
- */
-export class IndentedWriter implements IWriter {
-	private _indent: number = 0;
-	private _unit: string = "  ";
-	private computedIndent: string = "";
-
-	/**
-	 * Creates a new indented writer.
-	 * @param inner Writer to wrap.
-	 * @param unit String to use per indentation level.
-	 */
-	public constructor(
-		public readonly inner: Writer,
-		unit?: string,
-	) {
-		if (unit) this.unit = unit;
-	}
-
-	public get indent(): number { return this._indent; }
-	public get unit(): string { return this._unit; }
-
-	public set indent(i: number) {
-		this._indent = i;
-		this.updateIndent();
-	}
-	public set unit(u: string) {
-		this._unit = u;
-		this.updateIndent();
-	}
-		
-	private updateIndent() {
-		this.computedIndent = "\n" + this._unit.repeat(this._indent);
-	}
-
-	public push(str: string): void {
-		this.inner.push(str.replace(/\n/g, this.computedIndent));
-	}
-	public fg(color: Color, bright?: boolean): void {
-		this.inner.fg(color, bright);
-	}
-	public bg(color: Color, bright?: boolean): void {
-		this.inner.bg(color, bright);
-	}
-	public resetColor(fg?: boolean, bg?: boolean): void {
-		this.inner.resetColor(fg, bg);
-	}
-	public print(): void {
-		this.inner.print();
-	}
-	public toString(): string {
-		return this.inner.toString();
 	}
 }

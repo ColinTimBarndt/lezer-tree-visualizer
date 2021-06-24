@@ -1,48 +1,35 @@
-import { Color, PlatformColor } from "./color";
+import { Color, ColorType } from "./color";
 import { Writer } from "./writer";
 
-const colorHex: string[] = [
-	// Normal
-	[12, 12, 12],
-	[197, 15, 31],
-	[19, 161, 14],
-	[193, 156, 0],
-	[0, 55, 218],
-	[136, 23, 152],
-	[58, 150, 221],
-	[204, 204, 204],
-	// Bright
-	[118, 118, 118],
-	[231, 72, 86],
-	[22, 198, 12],
-	[249, 241, 165],
-	[59, 129, 255],
-	[180, 0, 158],
-	[97, 214, 214],
-	[242, 242, 242],
-].map((rgb) => `rgb(${rgb.join(",")})`);
-
-function colorStyle(color: Color, bg: boolean, bright: boolean): string {
+function colorStyle(color: ColorType, bg: boolean): string {
+	const rgb = Color.toRGB(color);
 	return (bg ? "background:" : "color:")
-		+ colorHex[color + (bright ? 8 : 0)]
-		+ ";";
+		+ "rgb("
+		+ rgb.join(",")
+		+ ");";
 }
 
-export class ColorWriter extends Writer {
+/**
+ * Writes to the console with CSS format specifiers to support web console colors.
+ */
+export class WebColorWriter extends Writer {
+	/**
+	 * CSS Styles appended to the `console.log` call.
+	 */
 	protected styles: string[] = [];
 
 	/**
-	 * @inheritdoc Writer.pushColor
+	 * @inheritdoc IWriter.pushColor
 	 * @override
 	 */
 	protected pushColor() {
 		const style: string[] = [];
 
 		if (this.color.fg !== null) {
-			style.push(colorStyle(this.color.fg, false, this.color.bright_fg));
+			style.push(colorStyle(this.color.fg, false));
 		}
 		if (this.color.bg !== null) {
-			style.push(colorStyle(this.color.bg, true, this.color.bright_bg));
+			style.push(colorStyle(this.color.bg, true));
 		}
 
 		this.buffer += "%c";
@@ -50,10 +37,19 @@ export class ColorWriter extends Writer {
 	}
 
 	/**
-	 * @inheritdoc Writer.print
+	 * @inheritdoc IWriter.print
 	 * @override
 	 */
 	public print() {
 		console.log(this.buffer, ...this.styles);
+	}
+
+	/**
+	 * @inheritdoc IWriter.clear
+	 * @override
+	 */
+	public clear() {
+		super.clear();
+		this.styles.length = 0;
 	}
 }

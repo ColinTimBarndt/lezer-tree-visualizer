@@ -75,6 +75,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/iwriter.html" class="tsd-kind-icon">IWriter</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/options.html" class="tsd-kind-icon">Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/source.html" class="tsd-kind-icon">Source</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/theme.html" class="tsd-kind-icon">Theme</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -85,7 +86,9 @@
 								<li class="tsd-kind-type-alias"><a href="modules.html#colortype3bit" class="tsd-kind-icon">Color<wbr>Type3bit</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#colortype4bit" class="tsd-kind-icon">Color<wbr>Type4bit</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#colortype8bit" class="tsd-kind-icon">Color<wbr>Type8bit</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#filterfunction" class="tsd-kind-icon">Filter<wbr>Function</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#rgb" class="tsd-kind-icon">RGB</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#visibilitymodifiervalue" class="tsd-kind-icon">Visibility<wbr>Modifier<wbr>Value</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -93,6 +96,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable"><a href="modules.html#color" class="tsd-kind-icon">Color</a></li>
 								<li class="tsd-kind-variable"><a href="modules.html#colorwriter" class="tsd-kind-icon">Color<wbr>Writer</a></li>
+								<li class="tsd-kind-variable"><a href="modules.html#visibilitymodifier" class="tsd-kind-icon">Visibility<wbr>Modifier</a></li>
+								<li class="tsd-kind-variable"><a href="modules.html#defaultostheme" class="tsd-kind-icon">default<wbr>OsTheme</a></li>
+								<li class="tsd-kind-variable"><a href="modules.html#defaulttheme" class="tsd-kind-icon">default<wbr>Theme</a></li>
+								<li class="tsd-kind-variable"><a href="modules.html#defaultwebtheme" class="tsd-kind-icon">default<wbr>Web<wbr>Theme</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -112,7 +119,7 @@
 					<div class="tsd-signature tsd-kind-icon">Color<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>bg<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">; </span>fg<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">; </span>update_bg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>update_fg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L166">color.ts:166</a></li>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L166">color.ts:166</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -144,7 +151,7 @@
 					<div class="tsd-signature tsd-kind-icon">Color<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol"> | </span><a href="modules.html#colortype8bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType8bit</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>rgb<span class="tsd-signature-symbol">: </span><a href="modules.html#rgb" class="tsd-signature-type" data-tsd-kind="Type alias">RGB</a><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L157">color.ts:157</a></li>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L157">color.ts:157</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +161,7 @@
 					<div class="tsd-signature tsd-kind-icon">Color<wbr>Type3bit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">3</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">4</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">5</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">6</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">7</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L140">color.ts:140</a></li>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L140">color.ts:140</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -174,7 +181,7 @@
 					<div class="tsd-signature tsd-kind-icon">Color<wbr>Type4bit<span class="tsd-signature-symbol">:</span> <a href="modules.html#colortype3bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType3bit</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">8</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">9</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">10</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">11</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">12</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">13</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">14</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">15</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L146">color.ts:146</a></li>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L146">color.ts:146</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -194,7 +201,7 @@
 					<div class="tsd-signature tsd-kind-icon">Color<wbr>Type8bit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">5</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L152">color.ts:152</a></li>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L152">color.ts:152</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -209,18 +216,96 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="filterfunction" class="tsd-anchor"></a>
+					<h3>Filter<wbr>Function</h3>
+					<div class="tsd-signature tsd-kind-icon">Filter<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SyntaxNode</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="modules.html#visibilitymodifiervalue" class="tsd-signature-type" data-tsd-kind="Type alias">VisibilityModifierValue</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/visualize.ts#L73">visualize.ts:73</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="interfaces/options.html#filter">Options.filter</a></p>
+							</dd>
+							<dt>returns</dt>
+							<dd><p>One of the following values:</p>
+								<table>
+									<thead>
+										<tr>
+											<th>Value</th>
+											<th>Description</th>
+										</tr>
+									</thead>
+									<tbody><tr>
+											<td><code>Hidden</code></td>
+											<td>The node is hidden</td>
+										</tr>
+										<tr>
+											<td><code>Shown</code></td>
+											<td>The node is visible</td>
+										</tr>
+										<tr>
+											<td><code>Collapsed</code></td>
+											<td>Only the node name is visible, the rest remains as an ellipsis</td>
+										</tr>
+								</tbody></table>
+							</dd>
+						</dl>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SyntaxNode</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modules.html#visibilitymodifiervalue" class="tsd-signature-type" data-tsd-kind="Type alias">VisibilityModifierValue</a></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>node: <span class="tsd-signature-type">SyntaxNode</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <a href="modules.html#visibilitymodifiervalue" class="tsd-signature-type" data-tsd-kind="Type alias">VisibilityModifierValue</a></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="rgb" class="tsd-anchor"></a>
 					<h3>RGB</h3>
 					<div class="tsd-signature tsd-kind-icon">RGB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L156">color.ts:156</a></li>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L156">color.ts:156</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Type of a 24-bit RGB color.</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="visibilitymodifiervalue" class="tsd-anchor"></a>
+					<h3>Visibility<wbr>Modifier<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">Visibility<wbr>Modifier<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">typeof </span><a href="modules.html#visibilitymodifier" class="tsd-signature-type" data-tsd-kind="Variable">VisibilityModifier</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-symbol">typeof </span><a href="modules.html#visibilitymodifier" class="tsd-signature-type" data-tsd-kind="Variable">VisibilityModifier</a><span class="tsd-signature-symbol">]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/visualize.ts#L86">visualize.ts:86</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p>{@link Options.FilterFunction}</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -232,7 +317,7 @@
 					<div class="tsd-signature tsd-kind-icon">Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>Black<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>Blue<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>BrightCyan<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>DarkBlue<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>DarkCyan<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>DarkGray<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>DarkGreen<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>DarkMagenta<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>DarkRed<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>DarkYellow<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>Green<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>LightGray<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>Magenta<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>Red<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>White<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>Yellow<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype4bit" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType4bit</a><span class="tsd-signature-symbol">; </span>vsc<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>Black<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>Blue<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>BrightCyan<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>DarkBlue<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>DarkCyan<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>DarkGray<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>DarkGreen<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>DarkMagenta<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>DarkRed<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>DarkYellow<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>Green<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>LightGray<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>Magenta<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>Red<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>White<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol">; </span>Yellow<span class="tsd-signature-symbol">: </span><a href="modules.html#colortype" class="tsd-signature-type" data-tsd-kind="Type alias">ColorType</a><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">; </span>fastEquals<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>to3bit<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>toRGB<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L25">color.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L25">color.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -353,7 +438,7 @@
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L84">color.ts:84</a></li>
+												<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L84">color.ts:84</a></li>
 											</ul>
 										</aside>
 										<div class="tsd-comment tsd-typography">
@@ -391,7 +476,7 @@
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L74">color.ts:74</a></li>
+												<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L74">color.ts:74</a></li>
 											</ul>
 										</aside>
 										<div class="tsd-comment tsd-typography">
@@ -424,7 +509,7 @@
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/color.ts#L47">color.ts:47</a></li>
+												<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/color.ts#L47">color.ts:47</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -450,9 +535,85 @@
 					<div class="tsd-signature tsd-kind-icon">Color<wbr>Writer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">typeof </span><a href="classes/oscolorwriter.html" class="tsd-signature-type" data-tsd-kind="Class">OsColorWriter</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">typeof </span><a href="classes/webcolorwriter.html" class="tsd-signature-type" data-tsd-kind="Class">WebColorWriter</a><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/platform-color.ts#L4">platform-color.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/platform-color.ts#L4">platform-color.ts:4</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="visibilitymodifier" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Visibility<wbr>Modifier</h3>
+					<div class="tsd-signature tsd-kind-icon">Visibility<wbr>Modifier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>Collapsed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">2</span><span class="tsd-signature-symbol">; </span>Hidden<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol">; </span>Shown<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/visualize.ts#L78">visualize.ts:78</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p>{@link Options.FilterFunction}</p>
+							</dd>
+						</dl>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>Collapsed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">2</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>Hidden<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">0</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>Shown<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">1</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="defaultostheme" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> default<wbr>OsTheme</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>OsTheme<span class="tsd-signature-symbol">:</span> <a href="interfaces/theme.html" class="tsd-signature-type" data-tsd-kind="Interface">Theme</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/visualize.ts#L26">visualize.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default color theme for terminals.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="defaulttheme" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> default<wbr>Theme</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Theme<span class="tsd-signature-symbol">:</span> <a href="interfaces/theme.html" class="tsd-signature-type" data-tsd-kind="Interface">Theme</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/visualize.ts#L51">visualize.ts:51</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default color theme for the current platform.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="defaultwebtheme" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> default<wbr>Web<wbr>Theme</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Web<wbr>Theme<span class="tsd-signature-symbol">:</span> <a href="interfaces/theme.html" class="tsd-signature-type" data-tsd-kind="Interface">Theme</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/visualize.ts#L38">visualize.ts:38</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default color theme for web consoles.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -467,7 +628,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/596a86f/src/visualize.ts#L65">visualize.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/ColinTimBarndt/lezer-tree-visualizer/blob/6ec9855/src/visualize.ts#L125">visualize.ts:125</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -527,6 +688,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/source.html" class="tsd-kind-icon">Source</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/theme.html" class="tsd-kind-icon">Theme</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#colorstate" class="tsd-kind-icon">Color<wbr>State</a>
 					</li>
@@ -543,13 +707,31 @@
 						<a href="modules.html#colortype8bit" class="tsd-kind-icon">Color<wbr>Type8bit</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#filterfunction" class="tsd-kind-icon">Filter<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#rgb" class="tsd-kind-icon">RGB</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#visibilitymodifiervalue" class="tsd-kind-icon">Visibility<wbr>Modifier<wbr>Value</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="modules.html#color" class="tsd-kind-icon">Color</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="modules.html#colorwriter" class="tsd-kind-icon">Color<wbr>Writer</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#visibilitymodifier" class="tsd-kind-icon">Visibility<wbr>Modifier</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#defaultostheme" class="tsd-kind-icon">default<wbr>OsTheme</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#defaulttheme" class="tsd-kind-icon">default<wbr>Theme</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#defaultwebtheme" class="tsd-kind-icon">default<wbr>Web<wbr>Theme</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#visualize" class="tsd-kind-icon">visualize</a>

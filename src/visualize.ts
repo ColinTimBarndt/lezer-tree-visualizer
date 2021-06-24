@@ -1,4 +1,4 @@
-import { TreeCursor } from "lezer-tree";
+import { TreeCursor, SyntaxNode } from "lezer-tree";
 import { Color, ColorType } from "./color";
 import { ColorWriter } from "./platform-color";
 import { IWriter, Writer } from "./writer";
@@ -17,6 +17,7 @@ const colorScheme = typeof process === "object" ? {
 	blockQuotes: Color.LightGray,
 	blockReturn: Color.DarkGray,
 	colon: Color.LightGray,
+	ellipsis: Color.LightGray,
 } : {
 	name: Color.vsc.BrightCyan,
 	source: Color.vsc.DarkYellow,
@@ -24,6 +25,7 @@ const colorScheme = typeof process === "object" ? {
 	blockQuotes: Color.vsc.LightGray,
 	blockReturn: Color.vsc.DarkGray,
 	colon: Color.vsc.LightGray,
+	ellipsis: Color.vsc.LightGray,
 };
 
 
@@ -33,6 +35,31 @@ const colorScheme = typeof process === "object" ? {
 export interface Source {
 	substring(from: number, to: number): string;
 };
+
+/**
+ * @see {@link Options.filter}
+ * @returns One of the following values:
+ * 
+ * |Value      |Description                                                   |
+ * |-----------|--------------------------------------------------------------|
+ * |`Hidden`   |The node is hidden                                            |
+ * |`Shown`    |The node is visible                                           |
+ * |`Collapsed`|Only the node name is visible, the rest remains as an ellipsis|
+ */
+export type FilterFunction = (node: SyntaxNode) => VisibilityModifierValue;
+
+/**
+ * @see {@link Options.FilterFunction}
+ */
+export const VisibilityModifier = {
+	Hidden: 0,
+	Shown: 1,
+	Collapsed: 2,
+} as const;
+/**
+ * @see {@link Options.FilterFunction}
+ */
+export type VisibilityModifierValue = typeof VisibilityModifier[keyof typeof VisibilityModifier];
 
 export interface Options {
 	/**
@@ -47,6 +74,11 @@ export interface Options {
 	 * @defaultValue false
 	 */
 	lineByLine?: boolean;
+	/**
+	 * A function by which nodes are filtered.
+	 * @param node The node to be filtered.
+	 */
+	filter?: FilterFunction;
 	/**
 	 * Replaces the standard writer. The {@link Options.colors} option is
 	 * ignored if set.
@@ -68,10 +100,11 @@ export function visualize(cursor: TreeCursor, src: Source, options: Options = {}
 		? new ColorWriter()
 		: new Writer());
 	
-	let seg;
+	let seg,
+		filter: FilterFunction = options.filter || (() => 1);
 	if (options.lineByLine) {
 		let line;
-		for (line of traverseNode(cursor, src)) {
+		for (line of traverseNode(cursor, src, filter)) {
 			for (seg of line) {
 				if (seg[1]) {
 					if (seg[1] === -1)
@@ -85,7 +118,7 @@ export function visualize(cursor: TreeCursor, src: Source, options: Options = {}
 			writer.clear();
 		}
 	} else {
-		for (seg of joinAll(traverseNode(cursor, src), ["\n", undefined])) {
+		for (seg of joinAll(traverseNode(cursor, src, filter), ["\n", undefined])) {
 			if (seg[1]) {
 				if (seg[1] === -1)
 					writer.resetColor(true, false);
@@ -100,9 +133,20 @@ export function visualize(cursor: TreeCursor, src: Source, options: Options = {}
 
 function* traverseNode(
 	cursor: TreeCursor,
-	src: Source
+	src: Source,
+	filter: FilterFunction,
 ): Generator2d<[string, ColorType | -1 | undefined], void> {
 	const nodeName = cursor.node.name;
+	switch (filter(cursor.node)) {
+		case 2:
+			yield list(
+				[nodeName, colorScheme.name],
+				[": ", colorScheme.colon],
+				["…", colorScheme.ellipsis],
+			);
+		case 0:
+			return;
+	}
 	if (cursor.firstChild()) {
 		yield list(
 			[nodeName, colorScheme.name],
@@ -112,7 +156,7 @@ function* traverseNode(
 		do {
 			hasNext = cursor.node.nextSibling;
 			for (line of prefix2d(
-				traverseNode(cursor, src),
+				traverseNode(cursor, src, filter),
 				[hasNext ? CH_VR : CH_R, colorScheme.tree],
 				[hasNext ? CH_V : CH_E, colorScheme.tree],
 			)) yield line;

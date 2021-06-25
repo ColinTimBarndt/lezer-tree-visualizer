@@ -134,13 +134,13 @@ const shade24 = shadeN(24);
 const shade6 = shadeN(6);
 
 /**
- * Type of a 3-bit color (7 colors).
+ * Type of a 3-bit color (8 colors).
  * @see {@link https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit}
  */
 export type ColorType3bit =
 	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
 /**
- * Type of a 4-bit color (7 colors with a brightness bit).
+ * Type of a 4-bit color (8 colors with a brightness bit).
  * @see {@link https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit}
  */
 export type ColorType4bit =
